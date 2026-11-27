@@ -1,0 +1,7 @@
+.git
+.netlify
+.assetsignore
+wrangler.jsonc
+netlify.toml
+README.md
+LICENSE
