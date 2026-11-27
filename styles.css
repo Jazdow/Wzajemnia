@@ -4,7 +4,10 @@
 :root {
   --red: #e55c51;
   --red-dark: #cf404d;
-  --cta-red: #e4564b;
+  --red-darker: #b83a36;
+  /* Tło CTA przyciemnione do kontrastu WCAG AA z białym tekstem */
+  --cta-red: #cf404d;
+  --focus: #1a5fb4;
   --gray-bg: #f5f7fa;
   --gray-light: #fafafa;
   --border: #e4ebf3;
@@ -17,6 +20,11 @@
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
 
 body {
   margin: 0;
@@ -38,12 +46,23 @@ h1, h2, h3 {
 
 a { color: var(--red-dark); }
 
+/* Widoczny fokus: niebieski obrys z białą obwódką, czytelny na jasnym i ciemnym tle */
 a:focus-visible,
 button:focus-visible,
-.nav-toggle-label:focus-within {
-  outline: 3px solid #1a5fb4;
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus);
   outline-offset: 2px;
+  box-shadow: 0 0 0 5px #fff;
 }
+
+/* Na ciemnym / czerwonym tle obrys biały */
+.hero a:focus-visible,
+.cta a:focus-visible {
+  outline-color: #fff;
+  box-shadow: 0 0 0 5px #000;
+}
+
+main:focus { outline: none; }
 
 .visually-hidden {
   position: absolute;
@@ -64,7 +83,7 @@ button:focus-visible,
   color: #000;
   padding: 10px 16px;
 }
-.skip-link:focus { left: 8px; top: 8px; }
+.skip-link:focus { left: 8px; top: 8px; outline: 3px solid var(--focus); }
 
 .container {
   max-width: 960px;
@@ -102,9 +121,9 @@ button:focus-visible,
   padding: 12px 8px;
 }
 
-.nav-link:hover { color: var(--red); }
+.nav-link:hover { color: var(--red-dark); }
 
-.nav-toggle, .nav-toggle-label { display: none; }
+.nav-toggle { display: none; }
 
 .content,
 .footer { margin-left: var(--sidebar-width); }
@@ -154,10 +173,10 @@ button:focus-visible,
 
 .button-red {
   color: #fff;
-  background: var(--red);
-  border: 2px solid var(--red);
+  background: var(--red-dark);
+  border: 2px solid var(--red-dark);
 }
-.button-red:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.button-red:hover { background: var(--red-darker); border-color: var(--red-darker); }
 
 .button-hollow-white {
   color: #fff;
@@ -344,8 +363,13 @@ button:focus-visible,
   .content,
   .footer { margin-left: 0; }
 
-  .nav {
-    display: none;
+  /* Bez JS: menu w układzie poziomym pod logo */
+  .sidebar { flex-wrap: wrap; }
+  .nav { flex-direction: row; flex-wrap: wrap; }
+
+  .js .sidebar { flex-wrap: nowrap; }
+  .js .nav {
+    flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0; right: 0;
@@ -354,15 +378,24 @@ button:focus-visible,
     padding: 8px 0 16px;
   }
 
-  .nav-link { text-align: left; padding: 12px 20px; }
+  .nav-link { text-align: left; padding: 8px 10px; font-size: 16px; }
+  .js .nav-link { padding: 12px 20px; font-size: 19px; }
 
-  .nav-toggle-label {
-    display: flex;
+  /* Bez JS menu pozostaje widoczne; z JS jest zwijane przyciskiem */
+  .js .nav { display: none; }
+  .js .nav.is-open { display: flex; }
+
+  .nav-toggle {
+    display: none;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
     padding: 10px;
+    background: none;
+    border: 0;
+    border-radius: 4px;
   }
+  .js .nav-toggle { display: flex; }
 
   .nav-toggle-bar {
     width: 26px;
@@ -371,7 +404,6 @@ button:focus-visible,
     border-radius: 2px;
   }
 
-  .nav-toggle:checked ~ .nav { display: flex; }
 
   .hero { min-height: 480px; }
 

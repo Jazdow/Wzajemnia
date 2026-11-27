@@ -8,23 +8,22 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/logo-kcs-256.png">
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<a class="skip-link" href="#glowna">Przejdź do treści</a>
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
 
 <header class="sidebar">
   <a href="#glowna" class="sidebar-logo-link">
-    <img src="assets/logo-kcs.png" alt="Wzajemnia — logo" class="sidebar-logo" width="640" height="640">
+    <img src="assets/logo-kcs.png" alt="Wzajemnia — strona główna" class="sidebar-logo" width="640" height="640">
   </a>
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-  <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
-    <span class="nav-toggle-bar"></span>
-    <span class="nav-toggle-bar"></span>
-    <span class="nav-toggle-bar"></span>
-    <span class="visually-hidden">Menu</span>
-  </label>
-  <nav class="nav" aria-label="Nawigacja główna">
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nawigacja" aria-label="Menu">
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+  </button>
+  <nav id="nawigacja" class="nav" aria-label="Nawigacja główna">
     <a href="#glowna" class="nav-link">Główna</a>
     <a href="#co-robimy" class="nav-link">Co robimy</a>
     <a href="#grupy" class="nav-link">Grupy samopomocowe</a>
@@ -33,13 +32,13 @@
   </nav>
 </header>
 
-<main class="content">
+<main id="tresc" class="content" tabindex="-1">
 
   <section id="glowna" class="hero">
     <div class="hero-inner">
       <h1 class="hero-heading">WZAJEMNIA</h1>
       <p class="hero-subheading">Miejsca wspierające wspólne, oddolne działania i spotkania ludzi.</p>
-      <p><a href="assets/manifest-kcs.pdf" class="button button-red">Nasz Manifest!</a></p>
+      <p><a href="assets/manifest-kcs.pdf" class="button button-red">Nasz Manifest!<span class="visually-hidden"> (PDF)</span></a></p>
     </div>
   </section>
 
@@ -87,7 +86,7 @@
           <div class="card-body">
             <h3 class="card-title">GRUPA STARSZYZNY PLEMIENNEJ &bdquo;JAZNÓW&rdquo;</h3>
             <p class="card-text">Grupa osób 55+, spotykająca się w Otwartym Jazdowie, aby wzajemnie rozwijać się, oswajać starość i realizować wspólne projekty kulturalne.</p>
-            <a href="assets/grupa-jaznow.pdf" class="card-link" target="_blank" rel="noopener">więcej <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="assets/grupa-jaznow.pdf" class="card-link" target="_blank" rel="noopener">więcej<span class="visually-hidden"> o grupie „Jaznów” (PDF, otwiera się w nowej karcie)</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
@@ -96,7 +95,7 @@
           <div class="card-body">
             <h3 class="card-title">&bdquo;PAUZA&rdquo; Spotkania dla osób w okresie menopauzalnym</h3>
             <p class="card-text">Najważniejsze dla nas jest regularne spotykanie się, którego celem jest wyzwalanie pozytywnej energii, wgląd we własne uczucia i praca nad spełnianiem marzeń, które długo leżały zapomniane.</p>
-            <a href="assets/grupa-pauza-plakat.png" class="card-link" target="_blank" rel="noopener">więcej <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="assets/grupa-pauza-plakat.png" class="card-link" target="_blank" rel="noopener">więcej<span class="visually-hidden"> o grupie „PAUZA” (plakat, otwiera się w nowej karcie)</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
@@ -105,7 +104,7 @@
           <div class="card-body">
             <h3 class="card-title">GRUPA DLA UCHODŹCÓW Z UKRAINY</h3>
             <p class="card-text">Otwarta grupa wsparcia dla osób uchodzących przed wojną w Ukrainie. Grupa służy głównie możliwościom spotkania i dzielenia się wspólnymi trudnymi doświadczeniami. Prowadzona przez psycholożkę - uchodźczynię.</p>
-            <a href="https://www.facebook.com/events/1655081798287640/1658991994563287/" class="card-link" target="_blank" rel="noopener">więcej <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="https://www.facebook.com/events/1655081798287640/1658991994563287/" class="card-link" target="_blank" rel="noopener">więcej<span class="visually-hidden"> o grupie dla uchodźców z Ukrainy (Facebook, otwiera się w nowej karcie)</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
@@ -114,16 +113,16 @@
           <div class="card-body">
             <h3 class="card-title">GRUPA MŁODYCH DOROSŁYCH PO KRYZYSIE PSYCHICZNYM</h3>
             <p class="card-text">Młode osoby spotykające się na Jazdowie, aby wzajemnie służyć sobie wsparciem w codzienności, wygadać się i dzielić doświadczeniami oraz wspólnie organizować wyjścia i korzystać z warsztatów i wydarzeń kulturalnych</p>
-            <a href="https://www.facebook.com/groups/1904069839964341" class="card-link" target="_blank" rel="noopener">więcej <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="https://www.facebook.com/groups/1904069839964341" class="card-link" target="_blank" rel="noopener">więcej<span class="visually-hidden"> o grupie młodych dorosłych (Facebook, otwiera się w nowej karcie)</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
         <article class="card">
-          <img src="assets/logo-kcs-256.png" alt="Logo Wzajemni" class="card-image card-image-contain" width="256" height="256">
+          <img src="assets/logo-kcs-256.png" alt="" class="card-image card-image-contain" width="256" height="256">
           <div class="card-body">
             <h3 class="card-title">GRUPA DLA KOBIET UCHODŹCZYŃ</h3>
             <p class="card-text">Grupa samopomocowa dla kobiet przybyłych do Polski z obszarów dotkniętych konfliktem lub prześladowaniami. Zainicjowana na Jazdowie przez Fundację &bdquo;Ocalenie&rdquo;</p>
-            <a href="#grupy" class="card-link">więcej <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="#grupy" class="card-link">więcej<span class="visually-hidden"> o grupie dla kobiet uchodźczyń</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
@@ -132,7 +131,7 @@
           <div class="card-body">
             <h3 class="card-title">GRUPA &bdquo;TROP&rdquo;</h3>
             <p class="card-text">Grupa Wsparcia TROP jest nieformalną organizacją utworzoną przez osoby z doświadczeniem kryzysu psychicznego. Grupa działa na rzecz własnych członków jak również wspierająco i rzeczniczo na rzecz osób w trakcie lub po kryzysach psychicznych.</p>
-            <a href="https://www.facebook.com/groups/217735912765538" class="card-link" target="_blank" rel="noopener">więcej <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="https://www.facebook.com/groups/217735912765538" class="card-link" target="_blank" rel="noopener">więcej<span class="visually-hidden"> o grupie „TROP” (Facebook, otwiera się w nowej karcie)</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
@@ -143,7 +142,7 @@
   <section id="przewodnik" class="cta">
     <div class="container cta-inner">
       <h2 class="cta-heading">Chcesz dowiedzieć się jak założyć Wzajemnię w swojej instytucji?</h2>
-      <a href="assets/przewodnik-kcs.pdf" class="button button-hollow-white">ŚCIĄGNIJ PRZEWODNIK!</a>
+      <a href="assets/przewodnik-kcs.pdf" class="button button-hollow-white">ŚCIĄGNIJ PRZEWODNIK!<span class="visually-hidden"> (PDF)</span></a>
     </div>
   </section>
 
@@ -187,6 +186,40 @@
     a.className = 'button button-red button-mail';
     a.textContent = 'Napisz: ' + addr;
     slot.appendChild(a);
+  })();
+
+  // Menu mobilne: przycisk z aria-expanded, zamykanie klawiszem Escape
+  // i po wyjściu fokusu poza menu.
+  (function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('nawigacja');
+    if (!toggle || !nav) return;
+
+    function setOpen(open, returnFocus) {
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Zamknij menu' : 'Menu');
+      nav.classList.toggle('is-open', open);
+      if (!open && returnFocus) toggle.focus();
+    }
+    function isOpen() { return toggle.getAttribute('aria-expanded') === 'true'; }
+
+    toggle.addEventListener('click', function () {
+      var open = !isOpen();
+      setOpen(open);
+      if (open) { var first = nav.querySelector('a'); if (first) first.focus(); }
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a') && isOpen()) setOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) setOpen(false, true);
+    });
+    document.addEventListener('focusin', function (e) {
+      if (isOpen() && !nav.contains(e.target) && e.target !== toggle) setOpen(false);
+    });
+    window.matchMedia('(min-width: 861px)').addEventListener('change', function (m) {
+      if (m.matches) setOpen(false);
+    });
   })();
 </script>
 
